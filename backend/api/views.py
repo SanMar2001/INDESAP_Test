@@ -33,7 +33,11 @@ def start_session(request):
     if serializer.is_valid():
         session = serializer.save()
         return Response(
-            {"message": "Sesión iniciada", "session_id": session.id},
+            {
+                "message": "Sesión iniciada",
+                "session_id": session.id,
+                "name": session.worker.name,
+            },
             status=status.HTTP_201_CREATED,
         )
 
