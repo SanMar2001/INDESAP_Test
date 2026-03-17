@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend
+    container_name: indesap_backend
+    command: python manage.py runserver 0.0.0.0:8001
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8001:8001"
